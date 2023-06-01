@@ -1,0 +1,286 @@
+POST http://localhost:5000/api/service
+Content-Type: application/json
+
+{
+    "name": "Serviço 1",
+    "description": "Descrição do Serviço 1",
+    "duration": 90,
+    "price": 80,
+    "status": true
+}
+
+###
+
+GET http://localhost:5000/service
+
+
+###
+
+GET http://localhost:5000/service/6459b55d381a9ceb3522efe6
+
+###
+
+DELETE http://localhost:5000/api/service/64582931aa5156c006181cb5
+
+###
+PUT http://localhost:5000/api/service/64582931aa5156c006181cb5
+Content-Type: application/json
+
+{
+    "status": false
+}
+
+###
+
+POST http://localhost:5000/client
+Content-Type: application/json
+
+{
+    "name": "Cliente 3",
+    "email": "email3@email.com",
+    "phone": 30000000000,
+    "doc": "00000000003"
+}
+
+###
+
+GET http://localhost:5000/client
+
+
+###
+
+GET http://localhost:5000/client/6465774d3b1917a934722258
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODQzNzEyNzd9.iTc71zMIMVZzrLzET4SgJ_Q08HVCIwMqVGD7bbNd77k
+###
+
+DELETE http://localhost:5000/api/client/63f3ec7dcdd28cdf78209b83
+
+###
+
+PUT  http://localhost:5000/api/client/63f3ecb1cdd28cdf78209b85
+Content-Type: application/json
+
+{
+    "name": "Cliente 2 Atualizado",
+    "email": "email2@email.com",
+    "phone": 20000000000,
+    "doc": "00000000002"
+}
+
+###
+
+POST http://localhost:5000/serviceProvider/register
+Content-Type: application/json
+
+{
+    "spname": "Prestador de Serviço 7",
+    "fantasyname": "Prestador de Serviço 7",
+    "email": "ps7@email.com",
+    "password": "12345",
+    "description": "",
+    "doc": "1258485552",
+    "confirmpassword": "12345"
+}
+
+###
+
+POST http://localhost:5000/serviceProvider/login
+Content-Type: application/json
+
+{
+    "email": "ps6@email.com",
+    "password": "12345"
+}
+
+###
+
+GET http://localhost:5000/serviceProvider
+
+
+###
+
+GET http://localhost:5000/serviceProvider/646576874b59b23e1a40c8de
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE4NjIwOTh9.XsRDxtevY_koijRzVs8cLFrfowVDlBTTyg_b3ezzwWE
+
+###
+
+DELETE http://localhost:5000/api/serviceProvider/640510d0999504cdbb793877
+
+###
+
+PUT http://localhost:5000/api/serviceProvider/63f3f2fbb047386ee53bc42a
+Content-Type: application/json
+
+{
+    "name": "Prestador de Serviço 01",
+    "email": "ps01@email.com",
+    "password": "S3nha do PS 01!",
+    "description": "Este é o cadastrado do Prestador de Serviço 01",
+    "doc": "00.000.000/0000-01"
+}
+
+###
+
+
+
+POST http://localhost:5000/api/schedule
+Content-Type: application/json
+
+{
+    "availableDays": "02/03/2023",
+    "availableHours": "08:00"
+}
+
+###
+
+GET http://localhost:5000/api/schedule
+
+###
+
+GET http://localhost:5000/event/freebusy
+
+###
+POST http://localhost:5000/scheduling
+Content-Type: application/json
+
+###
+
+POST http://localhost:5000/api/scheduling
+Content-Type: application/json
+
+{
+    "service": [
+        {
+            "name": "Serviço 3",
+            "description": "Descrição do Serviço 3",
+            "duration": 2,
+            "price": 90,
+            "status": true
+        }
+    ],
+    "client": [
+        {
+            "name": "Cliente 4",
+            "email": "client4@email.com",
+            "phone": 40000000000,
+            "doc": "00000000004"
+        }   
+    ],
+    "schedule": [
+        {
+            "availableDays": "02/03/2023",
+            "availableHours": "09:00"
+        }
+    ],
+    "date": "20/04/2023",
+    "initialHour":"20:00:00",
+    "endHour":"21:00:00"
+}
+
+###
+
+GET http://localhost:5000/scheduling
+
+
+###
+
+GET http://localhost:5000/scheduling/6472c6b45aa592a1c4343b3c
+
+###
+
+DELETE http://localhost:5000/api/scheduling/643f2f47981b0b6fcf33b59e
+
+###
+
+PUT http://localhost:5000/scheduling/6472c6b45aa592a1c4343b3c
+Content-Type: application/json
+
+{"eventId":"3cem974qs8ktmnjqi7mubarvo4","serviceId":"6472701b74adb8512e9a675a","endTime":"2023-05-28T02:55:00-03:00","startTime":"2023-05-28T02:15:00-03:00","clientName":"Wagner","clientPhone":"11948385361","clientEmail":"deividroger.1995@gmail.com"}
+
+
+###
+
+POST http://localhost:5000/api/report
+Content-Type: application/json
+
+{
+  "scheduling": [
+    {
+      "service": [
+        {
+          "name": "Serviço 2",
+          "description": "Descrição do Serviço 2",
+          "duration": 2,
+          "price": 50,
+          "status": true
+        }
+      ],
+      "client": [
+        {
+          "name": "Cliente 5",
+          "email": "client5@email.com",
+          "phone": 50000000000,
+          "doc": "00000000005"
+        }
+      ],
+      "schedule": [
+        {
+          "availableDays": "03/03/2023",
+          "availableHours": "09:00"
+        }
+      ]
+    }
+  ]
+}
+
+###
+
+GET http://localhost:5000/api/report
+
+
+###
+
+GET http://localhost:5000/api/report/63f411297e2a34b022f206c3
+
+###
+
+DELETE http://localhost:5000/api/report/63f411297e2a34b022f206c3
+
+###
+
+PUT http://localhost:5000/api/report/63f4117a7e2a34b022f206d3
+Content-Type: application/json
+
+{
+  "scheduling": [
+    {
+      "service": [
+        {
+          "name": "Serviço 2",
+          "description": "Descrição do Serviço 2",
+          "duration": 2,
+          "price": 50,
+          "status": true
+        }
+      ],
+      "client": [
+        {
+          "name": "Cliente 5",
+          "email": "client5@email.com",
+          "phone": 50000000000,
+          "doc": "00000000005"
+        }
+      ],
+      "schedule": [
+        {
+          "availableDays": "03/03/2023",
+          "availableHours": "09:00"
+        }
+      ]
+    }
+  ]
+}
+
+###
+
+GET http://localhost:5000/api/auth/google
